@@ -1,0 +1,40 @@
+name: calisthenics_gym_app
+description: "A gym progress tracker specifically aimed at calisthenics and streetlifting athletes"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Firebase core packages
+  firebase_core: ^2.30.0
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.17.5
+
+  # Replace flutterfire_ui with the official Firebase UI packages
+  firebase_ui_auth: ^1.13.0  # Official replacement for flutterfire_ui auth components
+  firebase_ui_firestore: ^1.6.2  # Optional: for Firestore UI components
+
+  # Add explicit JS dependency for web support
+  js: ^0.6.7
+  firebase_ui_oauth_google: ^1.3.2
+  google_sign_in: ^6.3.0
+
+  auto_route: ^9.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  auto_route_generator: any
+  build_runner: ^2.4.14
+
+flutter:
+  uses-material-design: true

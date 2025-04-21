@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "792029717615",
+    "project_id": "flutter-fitness-tracker-1c26e",
+    "storage_bucket": "flutter-fitness-tracker-1c26e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792029717615:android:670c7cbb5f85ea5518599a",
+        "android_client_info": {
+          "package_name": "com.BG.calisthenics_gym_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbjp4WWH5y4QgDlG_f6jzvMTm7WGM95q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
