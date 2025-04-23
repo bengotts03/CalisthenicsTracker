@@ -86,6 +86,25 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [WorkoutBrowseScreen]
+class WorkoutBrowseRoute extends PageRouteInfo<void> {
+  const WorkoutBrowseRoute({List<PageRouteInfo>? children})
+      : super(
+          WorkoutBrowseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutBrowseRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const WorkoutBrowseScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [WorkoutScreen]
 class WorkoutRoute extends PageRouteInfo<void> {
   const WorkoutRoute({List<PageRouteInfo>? children})

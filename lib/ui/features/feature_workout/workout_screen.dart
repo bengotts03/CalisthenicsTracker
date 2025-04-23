@@ -1,8 +1,36 @@
 import 'package:auto_route/annotations.dart';
-import 'package:calisthenics_gym_app/data/services/router_service.dart';
-import 'package:calisthenics_gym_app/main.dart';
-import 'package:calisthenics_gym_app/ui/features/feature_home/home_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:calisthenics_gym_app/router/router.dart';
+import 'package:calisthenics_gym_app/ui/features/feature_browse/browse_screen.dart';
 import 'package:flutter/material.dart';
+
+class WorkoutHistoryModel {
+  final String title;
+  final String description;
+  final Duration duration;
+  //final Exercise[] exercisesInWorkout;
+
+  WorkoutHistoryModel(this.title, this.description, this.duration);
+}
+class WorkoutHistoryElement extends StatelessWidget {
+  String workoutTitle = '';
+  String workoutDescription = '';
+
+  WorkoutHistoryElement({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Icon(Icons.fitness_center),
+        trailing: Icon(Icons.more_vert),
+        title: Text(workoutTitle),
+        subtitle: Text(workoutDescription),
+        isThreeLine: true,
+      ),
+    );
+  }
+}
 
 @RoutePage()
 class WorkoutScreen extends StatelessWidget{
@@ -19,7 +47,8 @@ class WorkoutScreen extends StatelessWidget{
   void OnClick_Browse(BuildContext context){
     //TODO: should route with id in the future instead of using the exercise name "pull-up" as the id
     //TODO: re-route so this takes you to a browser of exercises and routines
-    //context.go(AppRoutes.browse);
+    context.router.push(WorkoutBrowseRoute());
+    print("Browse");
   }
 
   @override

@@ -1,52 +1,24 @@
 import 'package:auto_route/annotations.dart';
-import 'package:calisthenics_gym_app/ui/core/shared_widgets/appbar/appbar_content_widget.dart';
+import 'package:calisthenics_gym_app/ui/core/shared_widgets/appbar/appbar_content_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class WorkoutHistoryModel {
-  final String title;
-  final String description;
-  final Duration duration;
-  //final Exercise[] exercisesInWorkout;
-
-  WorkoutHistoryModel(this.title, this.description, this.duration);
-}
-class WorkoutHistoryElement extends StatelessWidget {
-  String workoutTitle = '';
-  String workoutDescription = '';
-
-  WorkoutHistoryElement({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Icon(Icons.fitness_center),
-        trailing: Icon(Icons.more_vert),
-        title: Text(workoutTitle),
-        subtitle: Text(workoutDescription),
-        isThreeLine: true,
-      ),
-    );
-  }
-}
-
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget implements AppBarContentProvider {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AppBarContentWidget(
-      title: "Cali Tracker",
-      subtitle: _buildWelcomeMessage(),
-      actions: _buildAppBarActions(),
-      extraContent: _BuildWorkoutProgress(),
-      child: _BuildBody(),
-    );
+    return _BuildBody();
   }
 
-  List<Widget> _buildAppBarActions() {
+  @override
+  Widget? buildAppBarExtraContent(BuildContext context) {
+    return _BuildWorkoutProgress();
+  }
+
+  @override
+  List<Widget> getAppBarActions() {
     return [
       IconButton(
         icon: const Icon(Icons.notifications, color: Colors.white),
@@ -62,9 +34,16 @@ class HomeScreen extends StatelessWidget {
       )
     ];
   }
-  String _buildWelcomeMessage() {
+
+  @override
+  String getAppBarSubtitle() {
     final user = FirebaseAuth.instance.currentUser;
     return 'Welcome back, ${user?.displayName ?? 'User'}!';
+  }
+
+  @override
+  String getAppBarTitle() {
+    return "Cali Tracker";
   }
 }
 
