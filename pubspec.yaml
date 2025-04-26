@@ -28,6 +28,7 @@ dependencies:
   google_sign_in: ^6.3.0
 
   auto_route: ^9.2.0
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   flutter_test:
